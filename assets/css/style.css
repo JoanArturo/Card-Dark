@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Variables default */
+    --background-color: #141519;
+    --background-card: #212832;
+    --background-icon-card: #252E37;
+    --color-font-primary: #EFF4F7;
+    --color-font-secondary: #868d94;
+    --color-button-primary: #FC7613;
+    
+    
+    --border-radius-default: 15px;
+    --box-shadow-card: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 340px;
+    padding: 25px;
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-card);
+}
+.card__header > .card__icon {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: var(--background-icon-card);
+    color: var(--color-font-secondary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.card__header > .card__icon.active {
+    color: var(--color-button-primary);
+    animation: anim-card-icon 0.2s ease-out;
+}
+@keyframes anim-card-icon {
+    from {
+        transform: scale(1);
+    }
+    85% {
+        transform: scale(1.2);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+.card__title {
+    margin-top: 18px;
+    font-weight: 600;
+    color: var(--color-font-primary);
+}
+.card__description {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: var(--color-font-secondary);
+}
+.card__pagination {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+.card__pagination .card__button-page {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: var(--background-icon-card);
+    color: var(--color-font-secondary);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.card__pagination .card__button-page:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+.card__button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 20px;
+    background-color: var(--color-button-primary);
+    color: var(--color-font-primary);
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.card__button:hover {
+    border: 2px solid var(--color-button-primary);
+    background-color: transparent;
+    color: var(--color-button-primary);
+}
+
+@media screen and (max-width: 320px){
+    .card {
+        max-width: 300px;
+    }
+}
